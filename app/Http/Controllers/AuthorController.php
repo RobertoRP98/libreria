@@ -14,7 +14,7 @@ class AuthorController extends Controller
     public function index()
     {
         $authors = Author::all();
-        return Inertia::render('Authors/Index', ['authors' => '$authors']);
+        return Inertia::render('Authors/Index', ['authors' => $authors]);
     }
 
     public function create()
@@ -25,13 +25,15 @@ class AuthorController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'first_name' => 'requiered|max:100',
-            'last_name' => 'requiered|max:100',
-            'middle_name' => 'requiered|max:100',
+            'name' => 'required|max:100',
+            'last_name' => 'required|max:100',
+            'middle_name' => 'required|max:100',
         ]);
 
         $author = new Author($request->input());
         $author->save();
+        //Author::create($request->only(['name', 'last_name', 'middle_name']));
+
         return redirect('authors');
     }
 

@@ -52,6 +52,41 @@ const logout = () => {
                                     Dashboard
                                 </NavLink>
                             </div>
+
+                            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                <NavLink :href="route('books.index')" :active="route().current('book.index')">
+                                    Books 
+                                </NavLink>
+                            </div>
+
+                            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                <NavLink :href="route('authors.index')" :active="route().current('author.index')">
+                                    Authors 
+                                </NavLink>
+                            </div>
+                            
+                            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                <NavLink :href="route('categories.index')" :active="route().current('category.index')">
+                                    Categories 
+                                </NavLink>
+                            </div>
+
+                            
+                            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                <NavLink :href="route('graphic')" :active="route().current('graphic')">
+                                    Graphic 
+                                </NavLink>
+                            </div>
+
+                            
+                            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                <NavLink :href="route('reports')" :active="route().current('reports')">
+                                    Reports 
+                                </NavLink>
+                            </div>
+
+                            
+                            
                         </div>
 
                         <div class="hidden sm:flex sm:items-center sm:ms-6">
@@ -194,6 +229,19 @@ const logout = () => {
                         <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
                             Dashboard
                         </ResponsiveNavLink>
+
+                        <ResponsiveNavLink :href="route('books.index')" :active="route().current('books.index')">
+                            Books
+                        </ResponsiveNavLink>
+
+                        <ResponsiveNavLink :href="route('authors.index')" :active="route().current('authors.index')">
+                            Authors 
+                        </ResponsiveNavLink>
+
+                        <ResponsiveNavLink :href="route('categories.index')" :active="route().current('categories.index')">
+                            Categories
+                        </ResponsiveNavLink>
+
                     </div>
 
                     <!-- Responsive Settings Options -->
