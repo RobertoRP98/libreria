@@ -21,6 +21,7 @@ const deleteAuthor = (id,name) =>{
     }).then((result)=>{
 
         if(result.isConfirmed){
+            console.log(id);
             form.delete(route('authors.destroy',id));
         }
     });
@@ -70,7 +71,7 @@ const deleteAuthor = (id,name) =>{
                         <i class="fa-solid fa-edit"></i> </Link> </td>
 
                         <td class="border border-gray-400 px-4 py-4"> 
-                        <DangerButton @click="$event=>deleteAuthor(auth.id,auth.name)">
+                        <DangerButton @click="deleteAuthor(auth.id,auth.name)">
                         <i class="fa-solid fa-trash"></i>
                        </DangerButton> </td>
 

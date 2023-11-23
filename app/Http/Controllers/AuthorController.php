@@ -51,9 +51,9 @@ class AuthorController extends Controller
     public function update(Request $request, Author $author)
     {
         $request->validate([
-            'first_name' => 'requiered|max:100',
-            'last_name' => 'requiered|max:100',
-            'middle_name' => 'requiered|max:100',
+            'name' => 'required|max:100',
+            'last_name' => 'required|max:100',
+            'middle_name' => 'required|max:100',
         ]);
 
         $author->update($request->all());
