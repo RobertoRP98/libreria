@@ -13,7 +13,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
-        return Inertia::render('Categories/Index', ['categories' => '$categories']);
+        return Inertia::render('Categories/Index', ['categories' => $categories]);
     }
 
 
@@ -25,7 +25,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'requiered|max:100',
+            'name' => 'required|max:100',
         ]);
 
         $category = new Category($request->input());
@@ -46,9 +46,10 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         $request->validate([
-            'name' => 'requiered|max:100',
+            'name' => 'required|max:100',
         ]);
-        $category->update(($request->all()));
+
+        $category->update($request->all());
         return redirect('categories');
     }
 

@@ -8,9 +8,7 @@ use Inertia\Inertia;
 
 class AuthorController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         $authors = Author::all();
@@ -32,8 +30,6 @@ class AuthorController extends Controller
 
         $author = new Author($request->input());
         $author->save();
-        //Author::create($request->only(['name', 'last_name', 'middle_name']));
-
         return redirect('authors');
     }
 
