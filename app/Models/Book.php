@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 class Book extends Model
 {
     use HasFactory;
-    protected $fillable = ['name' . 'author_id', 'category_id'];
+    protected $fillable = ['name', 'author_id', 'category_id'];
 
 
     public function author()

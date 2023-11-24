@@ -63,7 +63,7 @@ const save = () => {
         });
     }
     else{
-     form.put(route('books.update',id.value),{
+     form.route(route('books.update',id.value),{
         onSuccess:() => {ok('Book update')}
      });   
     }
@@ -161,6 +161,7 @@ const deleteBook = (id,name) =>{
             <h2 class="p-3 text-lg font.medium text-hray-900">{{ title }}</h2>
             <div class="p-3 mt-6">
                 <InputLabel for="name" value="Name"></InputLabel>
+
                 <TextInput id="name" ref="nameInput"
                 v-model="form.name" type="text" class="mt-1 block w-3/4"
                 placeholder="Name">
