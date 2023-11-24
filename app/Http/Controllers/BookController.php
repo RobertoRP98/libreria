@@ -14,16 +14,8 @@ class BookController extends Controller
 
     public function index()
     {
-        $books = Book::select(
-            'books.id',
-            'books.name',
-            'category.id',
-            'categories.name as category',
-            'author.id',
-            'authors.firs_name as author'
-        )
-            ->join('categories', 'categories.id', '=', 'books.categories.id')
-            ->join('authors', 'authors.id', '=', 'books.authors.id')
+        $books = Book::with(['author:id,name', 'category:id,name'])
+
             ->paginate(10);
 
         $categories = Category::all();
@@ -46,7 +38,7 @@ class BookController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|max:150s',
+            'name' => 'required|max:150',
             'category_id' => 'required|numeric',
             'author_id' => 'required|numeric'
         ]);
