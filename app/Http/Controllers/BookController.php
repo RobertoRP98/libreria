@@ -15,26 +15,15 @@ class BookController extends Controller
     public function index()
     {
         $books = Book::with(['author:id,name', 'category:id,name'])
-
             ->paginate(10);
-
         $categories = Category::all();
         $authors = Author::all();
-
         return Inertia::render(
             'Books/Index',
             ['books' => $books, 'categories' => $categories, 'authors' => $authors]
         );
     }
 
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -48,30 +37,14 @@ class BookController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(Book $book)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Book $book)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, Book $book)
     {
         $request->validate([
-            'name' => 'requiered|max:150',
-            'category_id' => 'requiered|numeric',
-            'author_id' => 'requiered|numeric',
+            'name' => 'required|max:150',
+            'category_id' => 'required|numeric',
+            'author_id' => 'required|numeric',
         ]);
         $book->update($request->input());
         return redirect('books');

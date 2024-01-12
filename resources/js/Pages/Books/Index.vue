@@ -63,7 +63,7 @@ const save = () => {
         });
     }
     else{
-     form.route(route('books.update',id.value),{
+     form.put(route('books.update',id.value),{
         onSuccess:() => {ok('Book update')}
      });   
     }
